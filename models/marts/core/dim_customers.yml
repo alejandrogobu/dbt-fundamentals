@@ -8,6 +8,7 @@ models:
     columns: 
       - name: costumer_id
         description: Unique id for each costumer.
+        type: INT
         tests:
           - not_null
           - unique

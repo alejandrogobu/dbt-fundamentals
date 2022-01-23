@@ -14,6 +14,7 @@ models:
     columns:
       - name: payment_id
         description: This is a unique identifier for a payment
+        type: int
         meta:
           metrics:
             unique_payment_count:
@@ -22,12 +23,15 @@ models:
 
       - name: order_id
         description: Foreign key to the orders table
+        type: int
 
       - name: payment_method
         description: Method of payment used, for example credit card
+        type: string
 
       - name: amount
         description: Total amount (AUD) of the individual payment
+        type: string
         meta:
           metrics:
             total_revenue:
