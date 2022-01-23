@@ -12,7 +12,7 @@ models:
 
     columns:
       - name: order_id
-        type: int
+        type: number
         tests:
           - unique
           - not_null
@@ -25,10 +25,11 @@ models:
 
       - name: is_completed
         description: Boolean indicating if status is completed
+        type: boolean
 
       - name: customer_id
         description: Foreign key to the customers table
-        type: int
+        type: number
         tests:
           - not_null
           - relationships:
@@ -37,7 +38,7 @@ models:
 
       - name: order_date
         description: Date (UTC) that the order was placed
-        type: date
+        type: timestamp
         meta:
           metrics:
             date_of_first_order:
@@ -54,7 +55,7 @@ models:
 
       - name: amount
         description: Total amount (AUD) of the order
-        type: int
+        type: number
         tests:
           - not_null
         meta:
@@ -64,6 +65,7 @@ models:
 
       - name: credit_card_amount
         description: Amount of the order (AUD) paid for by credit card
+        type: number
         tests:
           - not_null
 
@@ -74,10 +76,12 @@ models:
 
       - name: bank_transfer_amount
         description: Amount of the order (AUD) paid for by bank transfer
+        type: number
         tests:
           - not_null
 
       - name: gift_card_amount
         description: Amount of the order (AUD) paid for by gift card
+        type: number
         tests:
           - not_null

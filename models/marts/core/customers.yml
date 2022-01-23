@@ -7,7 +7,7 @@ models:
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
-        type: int
+        type: number
         tests:
           - unique
           - not_null
