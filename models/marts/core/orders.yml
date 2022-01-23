@@ -12,6 +12,7 @@ models:
 
     columns:
       - name: order_id
+        type: int
         tests:
           - unique
           - not_null
@@ -27,6 +28,7 @@ models:
 
       - name: customer_id
         description: Foreign key to the customers table
+        type: int
         tests:
           - not_null
           - relationships:
@@ -35,6 +37,7 @@ models:
 
       - name: order_date
         description: Date (UTC) that the order was placed
+        type: date
         meta:
           metrics:
             date_of_first_order:
@@ -44,12 +47,14 @@ models:
 
       - name: status
         description: A
+        type: string
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
       - name: amount
         description: Total amount (AUD) of the order
+        type: int
         tests:
           - not_null
         meta:

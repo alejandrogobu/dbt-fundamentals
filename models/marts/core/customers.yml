@@ -7,6 +7,7 @@ models:
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
+        type: int
         tests:
           - unique
           - not_null
@@ -17,6 +18,8 @@ models:
 
       - name: first_name
         description: Customer's first name. PII.
+        type: string
 
       - name: last_name
         description: Customer's last name. PII.
+        type: string
