@@ -13,7 +13,7 @@ models:
           - unique
         meta:
           dimension:
-          type: number
+            type: number
 
 metrics:
   - name: new_customers
