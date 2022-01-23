@@ -6,7 +6,7 @@ models:
   - name: dim_customers
     description: Dimension for customers.
     columns: 
-      - name: costumer_id
+      - name: customer_id
         description: Unique id for each costumer.
         tests:
           - not_null
@@ -14,7 +14,6 @@ models:
         meta:
           dimension:
             type: number
-
 metrics:
   - name: new_customers
     label: New Customers
@@ -22,7 +21,7 @@ metrics:
     description: "The number of paid customers using the product"
 
     type: count
-    sql: user_id # superfluous here, but shown as an example
+    sql: customer_id # superfluous here, but shown as an example
 
     timestamp: signup_date
     time_grains: [day, week, month]

@@ -18,6 +18,8 @@ models:
           - not_null
         description: This is a unique identifier for an order
         meta:
+          dimension:
+            type: number
           metrics:
             total_order_count:
               type: count_distinct
@@ -25,20 +27,21 @@ models:
 
       - name: is_completed
         description: Boolean indicating if status is completed
-        type: boolean
+ 
 
       - name: customer_id
         description: Foreign key to the customers table
-        type: number
         tests:
           - not_null
           - relationships:
               to: ref('customers')
               field: customer_id
+        meta:
+          dimension:
+            type: number
 
       - name: order_date
         description: Date (UTC) that the order was placed
-        type: timestamp
         meta:
           metrics:
             date_of_first_order:
@@ -48,40 +51,51 @@ models:
 
       - name: status
         description: A
-        type: string
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
       - name: amount
         description: Total amount (AUD) of the order
-        type: number
         tests:
           - not_null
         meta:
+          dimension:
+            type: number
           metrics:
             avg_amount:
               type: average
 
       - name: credit_card_amount
         description: Amount of the order (AUD) paid for by credit card
-        type: number
         tests:
           - not_null
+        meta:
+          dimension:
+            type: number
 
       - name: coupon_amount
         description: Amount of the order (AUD) paid for by coupon
         tests:
           - not_null
+        meta:
+          dimension:
+            type: number
 
       - name: bank_transfer_amount
         description: Amount of the order (AUD) paid for by bank transfer
         type: number
         tests:
           - not_null
+        meta:
+          dimension:
+            type: number
 
       - name: gift_card_amount
         description: Amount of the order (AUD) paid for by gift card
         type: number
         tests:
           - not_null
+        meta:
+          dimension:
+            type: number
