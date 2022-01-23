@@ -8,10 +8,12 @@ models:
     columns: 
       - name: costumer_id
         description: Unique id for each costumer.
-        type: number
         tests:
           - not_null
           - unique
+        meta:
+          dimension:
+          type: number
 
 metrics:
   - name: new_customers
@@ -39,6 +41,3 @@ metrics:
       - field: company_name
         operator: '!='
         value: "'Acme, Inc'"
-
-
-    meta: {team: Finance}
