@@ -43,7 +43,7 @@ models:
               type: max
 
       - name: status
-        description: '{{ doc("orders_status") }}'
+        description: A
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
