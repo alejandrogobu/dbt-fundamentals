@@ -2,6 +2,15 @@ version: 2
 
 models:
  - name: dim_customers
+models:
+  - name: dim_customers
+    description: Dimension for customers.
+    columns: 
+      - name: costumer_id
+        description: Unique id for each costumer.
+        tests:
+          - not_null
+          - unique
 
 metrics:
   - name: new_customers
