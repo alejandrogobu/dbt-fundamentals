@@ -1,5 +1,12 @@
 version: 2
 
+metrics:
+  - name: total sales
+    label: Total sales
+    model: orders
+    sql: amount
+    type: sum
+
 models:
   - name: orders
     description: This table has basic information about orders, as well as some derived facts based on payments
